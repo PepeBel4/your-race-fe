@@ -2,6 +2,7 @@
  * Angular 2 decorators and services
  */
 import { Component, ViewEncapsulation } from '@angular/core';
+import { AuthService } from './auth/auth.service';
 
 /*
  * App Component
@@ -16,5 +17,7 @@ import { Component, ViewEncapsulation } from '@angular/core';
   template: `<router-outlet></router-outlet>`
 })
 export class App {
-  constructor(){}
+  constructor(public auth: AuthService) {
+   	auth.handleAuthentication();
+  }
 }
