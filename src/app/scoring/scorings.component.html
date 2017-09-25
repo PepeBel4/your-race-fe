@@ -1,0 +1,46 @@
+<h1>Scorings</h1>
+
+<section class="widget" widget>
+      <header>
+        <h6>Table <span class="fw-semi-bold">Styles</span></h6>
+        <div class="widget-controls">
+          <a href="#"><i class="glyphicon glyphicon-cog"></i></a>
+          <a data-widgster="close" href="#"><i class="glyphicon glyphicon-remove"></i></a>
+        </div>
+      </header>
+      <div class="widget-body">
+        <h3>Overflow  <span class="fw-semi-bold">Table</span></h3>
+        <p>
+          Add any non-bordered .table within a widget for a seamless design.
+          Awesome look for no cost.
+          Just wrap the table with simple css class <code>.widget-table-overflow</code> inside
+          of widget
+        </p>
+      </div>
+      <div class="widget-table-overflow">
+        <table class="table table-striped table-lg mt-lg mb-0" [mfData]="scorings" #mf="mfDataTable">
+          <thead class="no-bd">
+          <tr>
+            <th>Id</th>
+            <th>Title</th>
+            <th>Groups</th>
+            <th class="text-right">Created By</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let scoring of mf.data">
+            <td>{{scoring.competitor.number}}</td>
+        		<td>{{scoring.points}}</td>
+            <td>{{scoring.points_with_discards}}</td>
+            <td>{{scoring.discards}}</td>
+            <td *ngFor="let race_position of scoring.race_positions" class="no-margin">
+                <small>
+                  <span class="fw-semi-bold">Pos:</span>
+                  <span class="text-semi-muted">&nbsp; {{ race_position }}</span>
+                </small>
+            </td>
+    	  </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>

@@ -1,0 +1,51 @@
+<h1>Competitions</h1>
+
+<section class="widget" widget>
+      <header>
+        <h6>Table <span class="fw-semi-bold">Styles</span></h6>
+        <div class="widget-controls">
+          <a href="#"><i class="glyphicon glyphicon-cog"></i></a>
+          <a data-widgster="close" href="#"><i class="glyphicon glyphicon-remove"></i></a>
+        </div>
+      </header>
+      <div class="widget-body">
+        <h3>Overflow  <span class="fw-semi-bold">Table</span></h3>
+        <p>
+          <a routerLink="./new">New Competition</a>
+        </p>
+        <p>
+          Add any non-bordered .table within a widget for a seamless design.
+          Awesome look for no cost.
+          Just wrap the table with simple css class <code>.widget-table-overflow</code> inside
+          of widget
+        </p>
+      </div>
+      <div class="widget-table-overflow">
+        <table class="table table-striped table-lg mt-lg mb-0" [mfData]="competitions" #mf="mfDataTable">
+          <thead class="no-bd">
+          <tr>
+            <th>Id</th>
+            <th>Title</th>
+            <th>Groups</th>
+            <th class="text-right">Created By</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let competition of mf.data">
+        		<td>{{competition.id}}</td>
+        		<td><a routerLink="{{ competition.id }}">{{competition.title}}</a></td>
+        		<td class="hidden-xs-down">
+              <p *ngFor="let group of competition.groups" class="no-margin">
+                <small>
+                  <span class="fw-semi-bold">Group:</span>
+                  <span class="text-semi-muted">&nbsp; {{ group.name }}</span>
+                </small>
+              </p>
+            </td>
+        		<td class="text-right">{{competition.created_by}}</td>
+        		<td class="text-right">{{competition.created_at | date}}</td>
+    	  </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
