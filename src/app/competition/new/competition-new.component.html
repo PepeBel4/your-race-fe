@@ -1,5 +1,6 @@
 <h1>Create a competition</h1>
 
+<div class="col-md-6 col-12">
 <section class="widget" widget>
   <header>
     <h6>Competition</h6>
@@ -10,124 +11,29 @@
     </div>
   </header>
   <div class="widget-body">
-    <form #competitionForm="ngForm">
-      <div class="form-group">
-        <label for="title">Title</label>
-        <input type="text"
-               id="title"
-               placeholder=""
-               required
-               name="title"
-               #title='ngModel'
-               [(ngModel)]="competition.title" 
-        >
-      </div> 
-      <div [hidden]="title.valid || title.pristine">
-        Title is required
-      </div> 
-    </form>
 
-    <div>
-        {{ competition.title }}
-    </div> 
-
-    <form class="form-horizontal" role="form">
+    <form #competitionForm="ngForm" class="form-horizontal" role="form">
           <fieldset>
             <legend><strong>Horizontal</strong> form</legend>
             <div class="form-group row">
-              <label for="normal-field" class="col-md-4  col-form-label text-md-right">Normal field</label>
+              <label for="title" class="col-md-4  col-form-label text-md-right">Title</label>
               <div class="col-md-7 ">
-                <input type="text" id="normal-field" class="form-control" placeholder="May have placeholder">
+                <input  type="text" 
+                        id="title" 
+                        class="form-control" 
+                        placeholder="Competition title" 
+                        required name="title"
+                        #title='ngModel'
+                        [(ngModel)]="competition.title" 
+                >
               </div>
-            </div>
-            <div class="form-group row">
-              <label for="hint-field" class="col-md-4 col-form-label text-md-right">
-                Label hint
-                <span class="help-block">Some help text</span>
-              </label>
-              <div class="col-md-7 ">
-                <input type="text" id="hint-field" class="form-control">
-              </div>
-            </div>
-            <div class="form-group row">
-              <label class="col-md-4  col-form-label text-md-right" for="tooltip-enabled">Tooltip enabled</label>
-              <div class="col-md-7 ">
-                <input type="text" id="tooltip-enabled" class="form-control"
-                       placement="top" tooltip="Some explanation text here"
-                       placeholder="Hover over me..">
-              </div>
-            </div>
-            <div class="form-group row">
-              <label class="col-md-4  col-form-label text-md-right" for="disabled-input">Disabled input</label>
-              <div class="col-md-7 ">
-                <input type="text" id="disabled-input" class="form-control"
-                       disabled="disabled" value="Default value" >
-              </div>
-            </div>
-            <div class="form-group row">
-              <label class="col-md-4  col-form-label text-md-right" for="max-length">Max length</label>
-              <div class="col-md-7 ">
-                <input type="text" id="max-length" maxlength="3"
-                       class="form-control"
-                       placeholder="Max length 3 characters"
-                       placement="top" tooltip="You cannot write more than 3 characters.">
-              </div>
-            </div>
-            <div class="form-group row">
-              <label class="col-md-4  col-form-label text-md-right" for="prepended-input">Prepended input</label>
-              <div class="col-md-7 ">
-                <div class="input-group">
-                  <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                  <input id="prepended-input" class="form-control" size="16" type="text" placeholder="Username">
-                </div>
-              </div>
-            </div>
-            <div class="form-group row">
-              <label class="col-md-4  col-form-label text-md-right" for="password-field">Password</label>
-              <div class="col-md-7 ">
-                <div class="input-group">
-                  <span class="input-group-addon"><i class="fa fa-lock"></i></span>
-                  <input type="password" class="form-control" id="password-field" placeholder="Password">
-                </div>
-              </div>
-            </div>
-            <div class="form-group row">
-              <label class="col-md-4  col-form-label text-md-right" for="appended-input">Appended input</label>
-              <div class="col-md-7 ">
-                <div class="input-group">
-                  <input id="appended-input" class="form-control" size="16" type="text">
-                  <span class="input-group-addon">.00</span>
-                </div>
-              </div>
-            </div>
-            <div class="form-group row">
-              <label class="col-md-4  col-form-label text-md-right" for="combined-input">Combined</label>
-              <div class="col-md-7 ">
-                <div class="input-group">
-                  <span class="input-group-addon">$</span>
-                  <input id="combined-input" class="form-control" size="16" type="text">
-                  <span class="input-group-addon">.00</span>
-                </div>
-              </div>
-            </div>
-            <div class="form-group row">
-              <label class="col-md-4  col-form-label text-md-right" for="transparent-input">
-                Append Transparent
-              </label>
-              <div class="col-md-7 ">
-                <div class="input-group input-group-transparent">
-                  <input id="transparent-input" class="form-control" type="text">
-                  <span class="input-group-addon">
-                    <i class="fa fa-camera"></i>
-                  </span>
-                </div>
-              </div>
+              <div [hidden]="title.valid || title.pristine">Title is required</div> 
             </div>
           </fieldset>
           <div class="form-actions">
             <div class="row">
               <div class="offset-md-4 col-md-7 ">
-                <button type="submit" class="btn btn-primary">Save Changes</button>
+                <button type="submit" class="btn btn-primary">Save</button>
                 <button type="button" class="btn btn-inverse">Cancel</button>
               </div>
             </div>
@@ -136,3 +42,4 @@
 
 	</div>
 </section>
+</div>

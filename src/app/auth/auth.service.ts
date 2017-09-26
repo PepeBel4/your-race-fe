@@ -24,7 +24,7 @@ export class AuthService {
   }
 
   public handleAuthentication(): void {
-    
+
     console.log("are we authenticated?");
     console.log(this.isAuthenticated());
 

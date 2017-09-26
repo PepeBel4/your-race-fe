@@ -3,32 +3,25 @@ import { Http, Response, Headers, RequestOptions } from '@angular/http';
 import { AuthHttp } from 'angular2-jwt';
 import { Observable } from 'rxjs/Rx';
 
-import { Competition } from './competition';
+import { Group } from './group';
 
 @Injectable()
-export class CompetitionService {
-	private competitionsUrl = 'http://localhost:3001/competitions/';
+export class GroupService {
+	private groupsUrl = 'http://localhost:3001/competitions/1groups';
 
 	constructor(
 		private authHttp: AuthHttp
 	) {}
 
-	getCompetitions(): Observable<Competition[]> {
+	getGroups(): Observable<Group[]> {
 
-		return this.authHttp.get(this.competitionsUrl)
-						.map((response: Response) => <Competition[]>response.json())
+		return this.authHttp.get(this.groupsUrl)
+						.map((response: Response) => <Group[]>response.json())
 						.catch(this.handleError);
 	}
 
-	getCompetition(id: number) {
-		return this.authHttp.get(this.competitionsUrl + id);
-	}
-
-	createCompetition(competition) {
-		let headers = new Headers({ 'Content-Type': 'application/json' });
-		let options = new RequestOptions({ headers: headers });
-		return this.authHttp.post(this.competitionsUrl, JSON.stringify(competition), {
-			headers: headers}).map((res: Response) => res.json());
+	getGroup(id: number) {
+		return this.authHttp.get(this.groupsUrl + id);
 	}
 
 	private handleError(error: Response | any) {
