@@ -16,13 +16,13 @@ export class Competitions implements OnInit {
 	errorMessage: string;
 
 	constructor(
-		private competitionService: CompetitionService;
+		private competitionService: CompetitionService
 	) {}
 
 	
 	ngOnInit() {
 		let timer = Observable.timer(0,5000);  
-		timer.subscribe(() => this.getCompetitions());      
+		timer.subscribe(() => this.getCompetitions());     
     }
 
     getCompetitions() {

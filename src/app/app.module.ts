@@ -16,23 +16,30 @@ import {
   PreloadAllModules
 } from '@angular/router';
 
+//for auth0 api calls
+import { Http, RequestOptions } from '@angular/http';
+import { AuthHttp, AuthConfig } from 'angular2-jwt';
+
 /*
  * Platform and Environment providers/directives/pipes
  */
 import { ENV_PROVIDERS } from './environment';
 import { ROUTES } from './app.routes';
+import { AuthService } from './auth/auth.service';
 // App is our top level component
 import { App } from './app.component';
 import { APP_RESOLVER_PROVIDERS } from './app.resolver';
 import { AppState, InternalStateType } from './app.service';
 import { AppConfig } from './app.config';
 import { ErrorComponent } from './error/error.component';
+import { CallbackComponent } from './callback/callback.component';
 
 // Application wide providers
 const APP_PROVIDERS = [
   ...APP_RESOLVER_PROVIDERS,
   AppState,
-  AppConfig
+  AppConfig,
+  AuthService
 ];
 
 type StoreType = {
@@ -41,6 +48,13 @@ type StoreType = {
   disposeOldHosts: () => void
 };
 
+//for auth0 api calls
+export function authHttpServiceFactory(http: Http, options: RequestOptions) {
+  return new AuthHttp(new AuthConfig({
+    tokenGetter: (() => localStorage.getItem('access_token'))
+  }), http, options);
+}
+
 /**
  * `AppModule` is the main entry point into Angular2's bootstraping process
  */
@@ -48,7 +62,8 @@ type StoreType = {
   bootstrap: [ App ],
   declarations: [
     App,
-    ErrorComponent
+    ErrorComponent,
+    CallbackComponent
   ],
   /**
    * Import Angular's modules.
@@ -59,7 +74,7 @@ type StoreType = {
     HttpModule,
     BrowserAnimationsModule,
     RouterModule.forRoot(ROUTES, {
-      useHash: true,
+      useHash: false,
       preloadingStrategy: PreloadAllModules
     })
   ],
@@ -68,7 +83,13 @@ type StoreType = {
    */
   providers: [
     ENV_PROVIDERS,
-    APP_PROVIDERS
+    APP_PROVIDERS,
+    AuthService,
+    {
+      provide: AuthHttp,
+      useFactory: authHttpServiceFactory,
+      deps: [Http, RequestOptions]
+    }
   ]
 })
 export class AppModule {
