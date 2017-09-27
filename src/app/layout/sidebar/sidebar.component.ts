@@ -20,15 +20,13 @@ export class Sidebar implements OnInit {
   config: any;
   router: Router;
   location: Location;
-  competition: Competition;
-  competitionService: CompetitionService;
+  competition: Competition
 
-  constructor(config: AppConfig, el: ElementRef, router: Router, location: Location, competitionService: CompetitionService) {
+  constructor(config: AppConfig, el: ElementRef, router: Router, location: Location, private competitionService: CompetitionService) {
     this.$el = jQuery(el.nativeElement);
     this.config = config.getConfig();
     this.router = router;
     this.location = location;
-    this.competitionService = competitionService;
   }
 
   initSidebarScroll(): void {

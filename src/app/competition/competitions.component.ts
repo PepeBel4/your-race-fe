@@ -1,5 +1,5 @@
 import { Component,ViewEncapsulation, OnInit } from '@angular/core';
-import { Observable } from 'rxjs/Rx';
+import { Observable, Subscription } from 'rxjs/Rx';
 
 import { Competition } from './competition';
 import { CompetitionService } from './competition.service';
@@ -14,13 +14,23 @@ export class Competitions implements OnInit {
 
 	competitions: Competition[];
 	errorMessage: string;
+	private timer: any;
+	private sub: Subscription;
+
 
 	constructor( private competitionService: CompetitionService) {}
 
 	
 	ngOnInit() {
-		let timer = Observable.timer(0,5000);  
-		timer.subscribe(() => this.getCompetitions());     
+		this.timer = Observable.timer(0,5000);  
+		this.sub = this.timer.subscribe(() => this.getCompetitions());   
+    }
+
+    ngOnDestroy(){
+        console.log("Destroy timer");
+        // unsubscribe here
+        this.sub.unsubscribe();
+
     }
 
     getCompetitions() {
