@@ -14,7 +14,6 @@ import { CompetitionShow } from './show/competition-show.component.ts';
 
 import { GroupShow } from './group/show/group-show.component.ts';
 
-import { CompetitionService } from './competition.service';
 import { GroupService } from './group/group.service';
 
 export const routes = [
