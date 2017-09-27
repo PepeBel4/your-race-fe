@@ -1,5 +1,6 @@
 import { Component,ViewEncapsulation, OnInit } from '@angular/core';
 import { Observable } from 'rxjs/Rx';
+
 import { Competition } from './competition';
 import { CompetitionService } from './competition.service';
 

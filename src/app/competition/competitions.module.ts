@@ -12,13 +12,17 @@ import { Competitions } from './competitions.component.ts';
 import { CompetitionNew } from './new/competition-new.component.ts';
 import { CompetitionShow } from './show/competition-show.component.ts';
 
+import { GroupShow } from './group/show/group-show.component.ts';
+
 import { CompetitionService } from './competition.service';
+import { GroupService } from './group/group.service';
 
 export const routes = [
-  { path: '', component: Competitions, pathMatch: 'full' }
-  {path: 'competitions', component: Competitions},
-  {path: 'new', component: CompetitionNew},
-  {path: ':id', component: CompetitionShow}
+  { path: '', component: Competitions, pathMatch: 'full' },
+  { path: 'competitions', component: Competitions},
+  { path: 'new', component: CompetitionNew},
+  { path: ':id', component: CompetitionShow},
+  { path: ':id/groups/:group_id', component: GroupShow }
 ];
 
 
@@ -34,10 +38,11 @@ export const routes = [
   declarations: [
     Competitions,
     CompetitionNew,
-    CompetitionShow
+    CompetitionShow,
+    GroupShow
   ],
   providers: [
-  	CompetitionService
+    GroupService
   ]
 })
 export class CompetitionsModule {

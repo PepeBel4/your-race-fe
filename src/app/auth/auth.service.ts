@@ -8,6 +8,8 @@ import * as auth0 from 'auth0-js';
 @Injectable()
 export class AuthService {
 
+  userProfile: any;
+
   auth0 = new auth0.WebAuth({
     clientID: 'UbgKLj2VnE6RxklPVPwl7XRKNgZmmmWS',
     domain: 'your-race.eu.auth0.com',
@@ -49,7 +51,6 @@ export class AuthService {
     localStorage.setItem('access_token', authResult.accessToken);
     localStorage.setItem('id_token', authResult.idToken);
     localStorage.setItem('expires_at', expiresAt);
-    console.log("session has been set...");
   }
 
   public logout(): void {
@@ -65,8 +66,26 @@ export class AuthService {
     // Check whether the current time is past the
     // access token's expiry time
     const expiresAt = JSON.parse(localStorage.getItem('expires_at'));
+    console.log("EXPIRES AT");
+    console.log(expiresAt);
+    console.log("CURRENTLY WE ARE");
+    console.log(new Date().getTime());
     return new Date().getTime() < expiresAt;
   }
 
+  public getProfile(cb): void {
+    const accessToken = localStorage.getItem('access_token');
+    if (!accessToken) {
+      throw new Error('Access token must exist to fetch profile');
+    }
+
+    const self = this;
+    this.auth0.client.userInfo(accessToken, (err, profile) => {
+      if (profile) {
+        self.userProfile = profile;
+      }
+      cb(err, profile);
+    });
+  }
 
 }

@@ -26,9 +26,13 @@ export class CompetitionShow implements OnInit {
 	competition: Competition;
 
 	ngOnInit(): void {
+
 		let competitionRequest = this.route.params	
 			.flatMap((params: Params) =>
 				this.competitionService.getCompetition(+params['id']));
-		competitionRequest.subscribe(response => this.competition = response.json())
+		competitionRequest.subscribe(response => {
+			this.competition = response.json();
+			this.competitionService.setSelectedCompetition(this.competition);
+		})
 	}
 }

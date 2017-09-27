@@ -2,12 +2,16 @@ import { Injectable } from '@angular/core';
 import { Http, Response, Headers, RequestOptions } from '@angular/http';
 import { AuthHttp } from 'angular2-jwt';
 import { Observable } from 'rxjs/Rx';
+import { Subject } from 'rxjs/Subject';
 
 import { Competition } from './competition';
 
 @Injectable()
 export class CompetitionService {
 	private competitionsUrl = 'http://localhost:3001/competitions/';
+	private response: any;
+	competition: Competition;
+	public competitionChange:Subject<Competition> = new Subject();
 
 	constructor(
 		private authHttp: AuthHttp
@@ -23,6 +27,13 @@ export class CompetitionService {
 	getCompetition(id: number) {
 		return this.authHttp.get(this.competitionsUrl + id);
 	}
+
+	setSelectedCompetition(competition: Competition) {
+        this.competition = competition;
+        console.log('setting it..');
+        this.competitionChange.next(this.competition);
+        console.log(this.competition);
+    }
 
 	createCompetition(competition) {
 		let headers = new Headers({ 'Content-Type': 'application/json' });

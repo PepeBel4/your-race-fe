@@ -2,6 +2,8 @@
   <div class="col-lg-12">
   	<section class="widget" widget>
       <header>
+
+ <router-outlet></router-outlet>
         <h6>Table <span class="fw-semi-bold">Styles</span></h6>
         <div class="widget-controls">
           <a href="#"><i class="glyphicon glyphicon-cog"></i></a>
@@ -22,7 +24,15 @@
      </section>
   </div>
 
+  <div class="col-lg-12 text-md-right">
+  <button [routerLink]="['./new']" class="btn btn-secondary width-200 mb-xs" role="button">
+            <i class="glyphicon glyphicon-plus-sign"></i>
+            Add Group
+  </button>
+  </div>
+
 <div class="col-lg-4 col-md-6 col-12" *ngFor="let group of competition.groups">
+    <a routerLink="./groups/{{ group.id }}">
     <section class="widget bg-primary text-white">
       <div class="widget-body clearfix">
         <div class="row flex-nowrap">
@@ -44,6 +54,7 @@
         </div>
       </div>
     </section>
+    </a>
   </div>
   
  </div>
