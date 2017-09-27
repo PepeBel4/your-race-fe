@@ -74,7 +74,7 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     HttpModule,
     BrowserAnimationsModule,
     RouterModule.forRoot(ROUTES, {
-      useHash: false,
+      useHash: true,
       preloadingStrategy: PreloadAllModules
     })
   ],

@@ -3,6 +3,10 @@ import { Router, NavigationEnd } from '@angular/router';
 import { Location } from '@angular/common';
 import { AppConfig } from '../../app.config';
 import { Observable } from 'rxjs/Rx';
+import { Subscription }   from 'rxjs/Subscription';
+
+import { Competition } from '../../competition/competition';
+import { CompetitionService } from '../../competition/competition.service';
 
 declare let jQuery: any;
 
@@ -16,14 +20,15 @@ export class Sidebar implements OnInit {
   config: any;
   router: Router;
   location: Location;
-  competitions: Competition[];
+  competition: Competition;
+  competitionService: CompetitionService;
 
-  constructor(config: AppConfig, el: ElementRef, router: Router, location: Location) {
+  constructor(config: AppConfig, el: ElementRef, router: Router, location: Location, competitionService: CompetitionService) {
     this.$el = jQuery(el.nativeElement);
     this.config = config.getConfig();
     this.router = router;
     this.location = location;
-
+    this.competitionService = competitionService;
   }
 
   initSidebarScroll(): void {
@@ -58,9 +63,13 @@ export class Sidebar implements OnInit {
 
   ngAfterViewInit(): void {
     this.changeActiveNavigationItem(this.location);
+    this.competitionService.competitionChange.subscribe(value => { this.competition = value });
+
   }
 
   ngOnInit(): void {
+
+
     jQuery(window).on('sn:resize', this.initSidebarScroll.bind(this));
     this.initSidebarScroll();
 

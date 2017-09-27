@@ -7,7 +7,7 @@ import { Group } from './group';
 
 @Injectable()
 export class GroupService {
-	private groupsUrl = 'http://localhost:3001/competitions/1groups';
+	private groupsUrl = 'http://localhost:3001/competitions/1/groups/';
 
 	constructor(
 		private authHttp: AuthHttp

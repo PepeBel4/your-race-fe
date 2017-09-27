@@ -25,18 +25,22 @@
           <span class="icon">
             <i class="glyphicon glyphicon-stats"></i>
           </span>
-        Competitions
+      Competitions
       </a>
     </li>
-     <li>
-      <a [routerLink]=" ['scorings'] ">
+    <h5 class="sidebar-nav-title">{{ competition?.title }} </h5>
+    <li>
+
+      <li><a [routerLink]=" ['competitions/' + competition?.id] ">
           <span class="icon">
             <i class="glyphicon glyphicon-stats"></i>
           </span>
-        Scorings
+      Dashboard
       </a>
     </li>
+
     <li>
+
       <a class="collapsed" data-target="#sidebar-dashboard" data-toggle="collapse" data-parent="#sidebar">
           <span class="icon">
             <i class="fa fa-desktop"></i>
@@ -45,9 +49,17 @@
         <i class="toggle fa fa-angle-down"></i>
       </a>
       <ul id="sidebar-dashboard" class="collapse">
-        <li><a [routerLink]=" ['dashboard'] ">Dashboard</a></li>
+        <li><a [routerLink]=" ['competitions/' + competition?.id] ">Dashboard</a></li>
         <li><a [routerLink]=" ['widgets'] ">Widgets</a></li>
       </ul>
+    </li>
+    <li>
+      <a [routerLink]=" ['scorings'] ">
+          <span class="icon">
+            <i class="glyphicon glyphicon-stats"></i>
+          </span>
+        Scorings
+      </a>
     </li>
     <li>
       <a [routerLink]=" ['inbox'] ">
