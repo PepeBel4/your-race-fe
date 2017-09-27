@@ -3,25 +3,18 @@ import { Http, Response, Headers, RequestOptions } from '@angular/http';
 import { AuthHttp } from 'angular2-jwt';
 import { Observable } from 'rxjs/Rx';
 
-import { Group } from './group';
+import { Fleet } from './fleet';
 
 @Injectable()
-export class GroupService {
+export class FleetService {
 	private apiUrl = 'http://localhost:3001/';
 
 	constructor(
 		private authHttp: AuthHttp
 	) {}
 
-	getGroups(competition_id: number): Observable<Group[]> {
-
-		return this.authHttp.get(this.apiUrl)
-						.map((response: Response) => <Group[]>response.json())
-						.catch(this.handleError);
-	}
-
-	getGroup(competition_id: number, id: number) {
-		return this.authHttp.get(this.apiUrl + 'competitions/' + competition_id + '/groups/' + id);
+	getFleet(competition_id: number, group_id: number, id: number) {
+		return this.authHttp.get(this.apiUrl + 'competitions/' + competition_id + '/groups/' + group_id + '/fleets/' + id);
 	}
 
 	private handleError(error: Response | any) {

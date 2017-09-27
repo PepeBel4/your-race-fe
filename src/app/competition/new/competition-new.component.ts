@@ -8,8 +8,7 @@ import { AuthService } from '../../auth/auth.service';
 @Component({
 	selector: 'competition-new',
 	templateUrl: 'competition-new.component.html',
-  	encapsulation: ViewEncapsulation.None,
-  	providers: [ CompetitionService ]
+  	encapsulation: ViewEncapsulation.None
 })
 
 export class CompetitionNew implements OnInit {

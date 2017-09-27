@@ -7,8 +7,7 @@ import { CompetitionService } from './competition.service';
 @Component({
 	selector: 'competitions',
 	templateUrl: 'competitions.component.html',
-  	encapsulation: ViewEncapsulation.None,
-  	providers: [CompetitionService]
+  	encapsulation: ViewEncapsulation.None
 
 })
 export class Competitions implements OnInit {
@@ -16,9 +15,7 @@ export class Competitions implements OnInit {
 	competitions: Competition[];
 	errorMessage: string;
 
-	constructor(
-		private competitionService: CompetitionService
-	) {}
+	constructor( private competitionService: CompetitionService) {}
 
 	
 	ngOnInit() {

@@ -13,15 +13,18 @@ import { CompetitionNew } from './new/competition-new.component.ts';
 import { CompetitionShow } from './show/competition-show.component.ts';
 
 import { GroupShow } from './group/show/group-show.component.ts';
-
 import { GroupService } from './group/group.service';
+
+import { FleetShow } from './group/fleet/show/fleet-show.component.ts';
+import { FleetService } from './group/fleet/fleet.service';
 
 export const routes = [
   { path: '', component: Competitions, pathMatch: 'full' },
   { path: 'competitions', component: Competitions},
   { path: 'new', component: CompetitionNew},
   { path: ':id', component: CompetitionShow},
-  { path: ':id/groups/:group_id', component: GroupShow }
+  { path: ':competition_id/groups/:id', component: GroupShow },
+  { path: ':competition_id/groups/:group_id/fleets/:id', component: FleetShow }
 ];
 
 
@@ -38,10 +41,12 @@ export const routes = [
     Competitions,
     CompetitionNew,
     CompetitionShow,
-    GroupShow
+    GroupShow,
+    FleetShow
   ],
   providers: [
-    GroupService
+    GroupService,
+    FleetService
   ]
 })
 export class CompetitionsModule {

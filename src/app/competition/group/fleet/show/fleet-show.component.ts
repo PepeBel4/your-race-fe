@@ -3,35 +3,35 @@ import { ActivatedRoute, Params } from '@angular/router';
 import { Http, Response, Headers, RequestOptions } from '@angular/http';
 import { Observable } from 'rxjs/Rx';
 
-import { Group } from '../group';
-import { GroupService } from '../group.service';
+import { Fleet } from '../fleet';
+import { FleetService } from '../fleet.service';
 
 @Component({
-	selector: 'group-show',
-	templateUrl: 'group-show.component.html',
+	selector: 'fleet-show',
+	templateUrl: 'fleet-show.component.html',
   	encapsulation: ViewEncapsulation.None
 })
 
-export class GroupShow implements OnInit {
+export class FleetShow implements OnInit {
 	id: number;
 	routeId: any;
 
 	constructor(
 		private http: Http,
 		private route: ActivatedRoute,
-		private groupService: GroupService
+		private fleetService: FleetService
 	 ) {}
 
 	@Input()
-	group: Group;
+	fleet: Fleet;
 
 	ngOnInit(): void {
 		let competitionRequest = this.route.params	
 			.flatMap((params: Params) =>
-				this.groupService.getGroup(+params['competition_id'],+params['id']));
+				this.fleetService.getFleet(+params['competition_id'],+params['group_id'],+params['id']));
 		competitionRequest.subscribe(response => {
 			console.log(response.json());
-			this.group = response.json()
+			this.fleet = response.json()
 			})
 	}
 }

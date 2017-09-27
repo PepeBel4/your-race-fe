@@ -1,8 +1,3 @@
-<div class="row">
-	{{ group?.name}}
-	{{ group?.competition.title }}
-</div>
-
 <section class="widget" widget>
       <header>
         <h6>Table <span class="fw-semi-bold">Styles</span></h6>
@@ -12,7 +7,7 @@
         </div>
       </header>
       <div class="widget-body">
-        <h3>Overflow  <span class="fw-semi-bold">Table</span></h3>
+        <h3>{{ group?.name }} <span class="fw-semi-bold">{{ group?.competition.title }}</span></h3>
         <p>
           Some info..
         </p>
@@ -32,11 +27,48 @@
           </thead>
           <tbody>
           <tr *ngFor="let competitor of mf.data">
-        		<td><a routerLink="{{ competitor.id }}">{{competitor.number}}</a></td>
+        		<td>
+
+               <a class="nav-link dropdown-toggle dropdown-toggle-notifications"
+                  id="notifications-dropdown-toggle" data-toggle="dropdown">
+                <span class="thumb-sm avatar float-left">
+                    <img class="rounded-circle" src="assets/img/people/a5.jpg" alt="...">
+                </span>
+               </a>
+              &nbsp;<a routerLink="{{ competitor.id }}">{{competitor.number}}</a>
+            </td>
         		<td>{{competitor.name}}</td>
         		<td>{{competitor.country}}</td>
     	  </tr>
           </tbody>
         </table>
       </div>
+  </section>
+
+  <div class="row">
+  <div class="col-lg-4 col-md-6 col-12" *ngFor="let fleet of group?.fleets">
+    <a routerLink="./fleets/{{ fleet.id }}">
+    <section class="widget bg-primary text-white">
+      <div class="widget-body clearfix">
+        <div class="row flex-nowrap">
+          <div class="col-3">
+            <span class="widget-icon">
+              <i class="glyphicon glyphicon-globe"></i>
+            </span>
+          </div>
+          <div class="col-9">
+            <h6 class="no-margin">FLEET</h6>
+            <p class="h2 no-margin fw-normal">{{ fleet.name }}</p>
+          </div>
+        </div>
+        <div class="row flex-nowrap">
+          <div class="col-6">
+            <h6 class="no-margin"></h6>
+            <p class="value5"></p>
+          </div>
+        </div>
+      </div>
     </section>
+    </a>
+  </div>
+</div>

@@ -12,7 +12,7 @@ import { AuthService } from './auth/auth.service';
   selector: 'app',
   encapsulation: ViewEncapsulation.None,
   styleUrls: [
-    './scss/application.scss'
+    './scss/application.scss'	
   ],
   template: `<router-outlet></router-outlet>`
 })
