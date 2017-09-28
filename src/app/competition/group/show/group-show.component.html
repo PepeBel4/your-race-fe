@@ -11,7 +11,7 @@
         <p>
           Some info..
         </p>
-        <button [routerLink]="['./new']" class="btn btn-secondary width-200 mb-xs" role="button">
+        <button [routerLink]="['./competitors/new']" class="btn btn-danger btn-rounded" role="button">
             <i class="glyphicon glyphicon-plus-sign"></i>
             Add competitor
         </button>
@@ -35,7 +35,7 @@
                     <img class="rounded-circle" src="assets/img/people/a5.jpg" alt="...">
                 </span>
                </a>
-              &nbsp;<a routerLink="{{ competitor.id }}">{{competitor.number}}</a>
+              &nbsp;<a routerLink="./competitors/{{ competitor.id }}">{{competitor.number}}</a>
             </td>
         		<td>{{competitor.name}}</td>
         		<td>{{competitor.country}}</td>
