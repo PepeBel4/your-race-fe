@@ -13,7 +13,7 @@ import { ActivatedRoute, Params } from '@angular/router';
 })
 
 export class CompetitorNew implements OnInit {
-	competitor = new Competitor;
+	competitor: Competitor
 	submitted: boolean = false;
 	profile: any;
 
@@ -22,7 +22,10 @@ export class CompetitorNew implements OnInit {
 		public auth: AuthService,
 		private route: ActivatedRoute,
 		private _location: Location
-	) {}
+	) {
+ 		this.competitor = new Competitor();
+
+	}
 
 	backClicked() {
 		this._location.back();

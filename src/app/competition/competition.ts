@@ -1,6 +1,6 @@
 export class Competition {
 	constructor(
-		public title: string,
+		public title?: string,
 		public id?: number,
 		public groups?: string,
 		public created_by?: number,
