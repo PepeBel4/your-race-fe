@@ -75,8 +75,6 @@ export class FleetShow implements OnInit {
 
 
 	setRace(race_id: number) {
-		console.log("Now setting race to " + race_id);
-		this.race_id = race_id
 		let competitionRequest = this.route.params	
 			.flatMap((params: Params) =>
 				this.raceService.getRace(+params['competition_id'],+params['group_id'],+params['id'],race_id));

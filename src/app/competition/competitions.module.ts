@@ -34,7 +34,7 @@ export const routes = [
   { path: ':id', component: CompetitionShow},
   { path: ':competition_id/groups/:id', component: GroupShow },
   { path: ':competition_id/groups/:group_id/fleets/:id', component: FleetShow },
-  { path: ':competition_id/groups/:group_id/competitors/new', component: CompetitorNew }
+  { path: ':competition_id/groups/:group_id/competitors/new', component: CompetitorNew },
   { path: ':competition_id/groups/:group_id/competitors/:id', component: CompetitorShow }
 ];
 
