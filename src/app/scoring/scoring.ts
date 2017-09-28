@@ -4,6 +4,6 @@ export class Scoring {
 		public points: number,
 		public points_with_discards: number,
 		public discards: number,
-		public race_positions: Array
+		public race_positions: string
 	) {}
 }
