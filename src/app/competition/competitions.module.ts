@@ -18,6 +18,11 @@ import { GroupService } from './group/group.service';
 import { FleetShow } from './group/fleet/show/fleet-show.component.ts';
 import { FleetService } from './group/fleet/fleet.service';
 
+import { RaceService } from './group/fleet/show/race.service';
+
+import { Ng2TableModule } from 'ng2-table';
+import { PaginationModule  } from 'ngx-bootstrap';
+
 export const routes = [
   { path: '', component: Competitions, pathMatch: 'full' },
   { path: 'competitions', component: Competitions},
@@ -28,6 +33,7 @@ export const routes = [
 ];
 
 
+
 @NgModule({
   imports: [
     CommonModule,
@@ -35,7 +41,9 @@ export const routes = [
     FormsModule,
     DataTableModule,
     JqSparklineModule,
-    RouterModule.forChild(routes)
+    RouterModule.forChild(routes),
+    PaginationModule.forRoot(),
+    Ng2TableModule
   ],
   declarations: [
     Competitions,
@@ -46,7 +54,8 @@ export const routes = [
   ],
   providers: [
     GroupService,
-    FleetService
+    FleetService,
+    RaceService
   ]
 })
 export class CompetitionsModule {
