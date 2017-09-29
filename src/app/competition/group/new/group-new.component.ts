@@ -1,17 +1,17 @@
 import { Component,ViewEncapsulation, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
 import { Observable } from 'rxjs/Rx';
-import { Competition } from '../competition';
-import { CompetitionService } from '../../competition.service';
+import { Group } from '../group';
+import { GroupService } from '../../group.service';
 
 @Component({
-	selector: 'competition-new',
-	templateUrl: 'competition-new.component.html',
+	selector: 'group-new',
+	templateUrl: 'group-new.component.html',
   	encapsulation: ViewEncapsulation.None
 })
 
-export class CompetitionNew implements OnInit {
-	competition = new Competition;
+export class GroupNew implements OnInit {
+	group = new Group;
 	submitted: boolean = false;
 	profile: any;
 

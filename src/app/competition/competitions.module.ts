@@ -12,6 +12,7 @@ import { Competitions } from './competitions.component.ts';
 import { CompetitionNew } from './new/competition-new.component.ts';
 import { CompetitionShow } from './show/competition-show.component.ts';
 
+import { GroupNew } from './group/new/group-new.component.ts';
 import { GroupShow } from './group/show/group-show.component.ts';
 import { GroupService } from './group/group.service';
 
@@ -27,11 +28,14 @@ import { RaceService } from './group/fleet/show/race.service';
 import { Ng2TableModule } from 'ng2-table';
 import { PaginationModule  } from 'ngx-bootstrap';
 
+import { SearchPipe } from './pipes/search-pipe';
+
 export const routes = [
   { path: '', component: Competitions, pathMatch: 'full' },
   { path: 'competitions', component: Competitions},
   { path: 'new', component: CompetitionNew},
   { path: ':id', component: CompetitionShow},
+  { path: ':competition_id/groups/new', component: GroupNew },
   { path: ':competition_id/groups/:id', component: GroupShow },
   { path: ':competition_id/groups/:group_id/fleets/:id', component: FleetShow },
   { path: ':competition_id/groups/:group_id/competitors/new', component: CompetitorNew },
@@ -55,11 +59,12 @@ export const routes = [
     Competitions,
     CompetitionNew,
     CompetitionShow,
+    GroupNew,
     GroupShow,
     FleetShow,
     CompetitorNew,
-    CompetitorShow
-
+    CompetitorShow,
+    SearchPipe
   ],
   providers: [
     GroupService,

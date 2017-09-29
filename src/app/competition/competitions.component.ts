@@ -12,16 +12,17 @@ import { CompetitionService } from './competition.service';
 })
 export class Competitions implements OnInit {
 
+    data: any[];
+
 	competitions: Competition[];
 	errorMessage: string;
 	private timer: any;
 	private sub: Subscription;
 
-
 	constructor( private competitionService: CompetitionService) {}
 
 	
-	ngOnInit() {
+	ngOnInit() {    
 		this.timer = Observable.timer(0,5000);  
 		this.sub = this.timer.subscribe(() => this.getCompetitions());   
     }
@@ -36,7 +37,7 @@ export class Competitions implements OnInit {
     getCompetitions() {
     	this.competitionService.getCompetitions()
     		.subscribe(
-    			competitions => this.competitions = competitions,
+    			competitions => this.data = competitions,
     			error => this.errorMessage = <any>error
     		);
     }

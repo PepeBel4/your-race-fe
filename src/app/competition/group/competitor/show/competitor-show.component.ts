@@ -9,7 +9,8 @@ import { CompetitorService } from '../competitor.service';
 @Component({
 	selector: 'competitor-show',
 	templateUrl: 'competitor-show.component.html',
-  	encapsulation: ViewEncapsulation.None
+  	encapsulation: ViewEncapsulation.None,
+  	styleUrls: ['./profile.style.scss']
 })
 
 export class CompetitorShow implements OnInit {

@@ -18,32 +18,45 @@
             Add competition
         </button>
       </div>
-      <div class="widget-table-overflow">
-        <table class="table table-striped table-lg mt-lg mb-0" [mfData]="competitions" #mf="mfDataTable">
-          <thead class="no-bd">
-          <tr>
-            <th>Id</th>
-            <th>Title</th>
-            <th>Groups</th>
-            <th class="text-right">Created By</th>
-          </tr>
-          </thead>
-          <tbody>
-          <tr *ngFor="let competition of mf.data">
-        		<td>{{competition.id}}</td>
-        		<td><a routerLink="{{ competition.id }}">{{competition.title}}</a></td>
-        		<td class="hidden-xs-down">
-              <p *ngFor="let group of competition.groups" class="no-margin">
+
+
+
+<table class="table table-striped" [mfData]="data" #mf="mfDataTable" [mfRowsOnPage]="10">
+    <thead>
+    <tr>
+        <th style="width: 40%">
+            <mfDefaultSorter by="name">Title</mfDefaultSorter>
+        </th>
+        <th style="width: 40%">
+            <mfDefaultSorter by="name">Groups</mfDefaultSorter>
+        </th>
+        <th style="width: 20%">
+            <mfDefaultSorter by="city">Created by</mfDefaultSorter>
+        </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let item of mf.data">
+        <td><a routerLink="{{ item.id }}">{{item.title}}</a></td>
+        <td>
+          <p *ngFor="let group of item.groups" class="no-margin">
                 <small>
                   <span class="fw-semi-bold">Group:</span>
                   <span class="text-semi-muted">&nbsp; {{ group.name }}</span>
                 </small>
               </p>
-            </td>
-        		<td class="text-right">{{competition.created_by}}</td>
-        		<td class="text-right">{{competition.created_at | date}}</td>
-    	  </tr>
-          </tbody>
-        </table>
-      </div>
+          </td>
+        <td>{{item.created_by}}</td>
+    </tr>
+    </tbody>
+    <tfoot>
+    <tr>
+        <td colspan="4">
+            <mfBootstrapPaginator [rowsOnPageSet]="[5,10,25]"></mfBootstrapPaginator>
+        </td>
+    </tr>
+    </tfoot>
+</table>
+
+
     </section>
