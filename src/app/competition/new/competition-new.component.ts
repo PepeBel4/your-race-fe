@@ -12,7 +12,7 @@ import { AuthService } from '../../auth/auth.service';
 })
 
 export class CompetitionNew implements OnInit {
-	competition = new Competition;
+	competition: Competition;
 	submitted: boolean = false;
 	profile: any;
 
@@ -20,7 +20,9 @@ export class CompetitionNew implements OnInit {
 		private competitionService: CompetitionService,
 		public auth: AuthService,
 		private _location: Location
-	) {}
+	) {
+		this.competition = new Competition();
+	}
 
 	backClicked() {
 		console.log('back clicked..');

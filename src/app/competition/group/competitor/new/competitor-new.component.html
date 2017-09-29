@@ -1,9 +1,11 @@
-<h1>Create a competition</h1>
+TO ADD A NEW COMPETITOR....
+
+<h1>Create a competitor</h1>
 
 <div class="col-12">
 <section class="widget" widget>
   <header>
-    <h6>Competition</h6>
+    <h6>Competitor</h6>
     <div class="widget-controls">
       <a data-widgster="expand" title="Expand" href="#"><i class="glyphicon glyphicon-chevron-up"></i></a>
       <a data-widgster="collapse" title="Collapse" href="#"><i class="glyphicon glyphicon-chevron-down"></i></a>
@@ -12,19 +14,19 @@
   </header>
   <div class="widget-body">
 
-    <form (ngSubmit)="createCompetition(competition)" #competitionForm="ngForm" class="form-horizontal" role="form">
+    <form (ngSubmit)="createCompetitor(competitor)" #competitorForm="ngForm" class="form-horizontal" role="form">
           <fieldset>
             <legend><strong>Horizontal</strong> form</legend>
             <div class="form-group row">
-              <label for="title" class="col-md-4  col-form-label text-md-right">Title</label>
+              <label for="title" class="col-md-4  col-form-label text-md-right">Name</label>
               <div class="col-md-7 ">
                 <input  type="text" 
-                        id="title" 
+                        id="name" 
                         class="form-control" 
-                        placeholder="Competition title" 
-                        required name="title"
+                        placeholder="Name" 
+                        required name="name"
                         #title='ngModel'
-                        [(ngModel)]="competition.title" 
+                        [(ngModel)]="competitor.name" 
                 >
               </div>
             </div>

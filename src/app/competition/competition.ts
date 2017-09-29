@@ -1,11 +1,11 @@
 export class Competition {
 	constructor(
+		public title?: string,
 		public id?: number,
-		public title: string,
-		public groups?: array,
+		public groups?: string,
 		public created_by?: number,
-		public created_at?: timestamp,
-		public updated_at?: timestamp
+		public created_at?: Date,
+		public updated_at?: Date
 	) {}
 }
 
