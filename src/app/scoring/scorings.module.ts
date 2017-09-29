@@ -13,7 +13,7 @@ import { Scorings } from './scorings.component.ts';
 import { ScoringService } from './scoring.service';
 
 export const routes = [
-  { path: '', component: Scorings, pathMatch: 'full' }
+  { path: '', component: Scorings, pathMatch: 'full' },
   {path: 'scorings', component: Scorings}
 ];
 

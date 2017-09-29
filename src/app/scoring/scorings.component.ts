@@ -16,7 +16,7 @@ export class Scorings implements OnInit {
 	errorMessage: string;
 
 	constructor(
-		private scoringService: ScoringService;
+		private scoringService: ScoringService
 	) {}
 
 	
