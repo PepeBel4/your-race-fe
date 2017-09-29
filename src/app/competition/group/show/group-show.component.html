@@ -29,12 +29,11 @@
           <tr *ngFor="let competitor of mf.data">
         		<td>
 
-               <a class="nav-link dropdown-toggle dropdown-toggle-notifications"
-                  id="notifications-dropdown-toggle" data-toggle="dropdown">
+               
                 <span class="thumb-sm avatar float-left">
                     <img class="rounded-circle" src="assets/img/people/a5.jpg" alt="...">
                 </span>
-               </a>
+
               &nbsp;<a routerLink="./competitors/{{ competitor.id }}">{{competitor.number}}</a>
             </td>
         		<td>{{competitor.name}}</td>

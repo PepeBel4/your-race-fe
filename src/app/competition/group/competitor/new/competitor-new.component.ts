@@ -6,10 +6,13 @@ import { CompetitorService } from '../competitor.service';
 import { AuthService } from '../../../../auth/auth.service';
 import { ActivatedRoute, Params } from '@angular/router';
 
+declare let Messenger: any;
+
 @Component({
 	selector: 'competitor-new',
+	encapsulation: ViewEncapsulation.None,
 	templateUrl: 'competitor-new.component.html',
-  	encapsulation: ViewEncapsulation.None
+	styleUrls: ['./notifications.style.scss']
 })
 
 export class CompetitorNew implements OnInit {
@@ -48,6 +51,9 @@ export class CompetitorNew implements OnInit {
 			.flatMap((params: Params) => this.competitorService.createCompetitor(+params['competition_id'],+params['group_id'],competitor))
 			.subscribe(
 				data => {
+					Messenger().post("Competitor added");
+      				this.competitor = new Competitor();
+      				this.submitted = false;
 					return true }, 
 				error => {
 					console.log("Error saving competitor");

@@ -59,6 +59,7 @@ export const routes = [
     FleetShow,
     CompetitorNew,
     CompetitorShow
+
   ],
   providers: [
     GroupService,
