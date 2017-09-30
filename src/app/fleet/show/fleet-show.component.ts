@@ -5,8 +5,8 @@ import { Observable } from 'rxjs/Rx';
 
 import { Fleet } from '../fleet';
 import { FleetService } from '../fleet.service';
-import { Race } from './race';
-import { RaceService } from './race.service';
+import { Race } from '../../race/race';
+import { RaceService } from '../../race/race.service';
 
 @Component({
 	selector: 'fleet-show',

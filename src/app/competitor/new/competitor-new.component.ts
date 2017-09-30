@@ -3,7 +3,7 @@ import { Location } from '@angular/common';
 import { Observable } from 'rxjs/Rx';
 import { Competitor } from '../competitor';
 import { CompetitorService } from '../competitor.service';
-import { AuthService } from '../../../../auth/auth.service';
+import { AuthService } from '../../auth/auth.service';
 import { ActivatedRoute, Params } from '@angular/router';
 
 declare let Messenger: any;
