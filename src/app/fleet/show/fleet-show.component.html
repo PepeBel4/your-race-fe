@@ -39,6 +39,29 @@
       </div>
     </section>
   </div>
+   <div class="col-3">
+  <section (click)="setRace(race.id)" class="widget bg-primary text-white">
+      <div class="widget-body clearfix">
+        <div class="row flex-nowrap">
+          <div class="col-3">
+            <span class="widget-icon">
+              <i class="glyphicon glyphicon-plus"></i>
+            </span>
+          </div>
+          <div class="col-9">
+            <h6 class="no-margin">RACE</h6>
+            <p class="h2 no-margin fw-normal">NEW Race</p>
+          </div>
+        </div>
+        <div class="row flex-nowrap">
+          <div class="col-6">
+            <h6 class="no-margin"></h6>
+            <p class="value5"></p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
 </div>
 
 <h3>{{ race?.name }} <span class="fw-semi-bold"></span></h3>
