@@ -28,7 +28,8 @@
                         [(ngModel)]="competitor.number" 
                 >
               </div>
-            </div><div class="form-group row">
+            </div>
+            <div class="form-group row">
               <label for="title" class="col-md-4  col-form-label text-md-right">Name</label>
               <div class="col-md-7 ">
                 <input  type="text" 
@@ -39,6 +40,20 @@
                         name="name"
                         #title='ngModel'
                         [(ngModel)]="competitor.name" 
+                >
+              </div>
+            </div>
+              <div class="form-group row">
+              <label for="title" class="col-md-4  col-form-label text-md-right">Sailor ID</label>
+              <div class="col-md-7 ">
+                <input  type="text" 
+                        id="sailor_id" 
+                        class="form-control" 
+                        placeholder="Sailor ID" 
+                        required 
+                        name="sailor_id"
+                        #title='ngModel'
+                        [(ngModel)]="competitor.sailor_id" 
                 >
               </div>
             </div>

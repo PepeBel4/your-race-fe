@@ -4,6 +4,7 @@ export class Competitor {
 		public group_id?: number,
 		public number?: string,
 		public name?: string,
-		public country?: string
+		public country?: string;
+		public sailor_id?: string
 	) {}
 }
