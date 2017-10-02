@@ -1,3 +1,13 @@
+<style>
+  agm-map {
+  height: 300px;
+}
+</style>
+
+<agm-map [latitude]="lat" [longitude]="lng">
+  <agm-marker *ngFor="let marker of markers" [latitude]="marker.lat" [longitude]="marker.lng"></agm-marker>
+</agm-map>
+<h1 class="page-title">Google <span class="fw-semi-bold">Maps</span></h1>
 
 
 
@@ -106,7 +116,7 @@
         </div>
         <div class="tab-pane" id="tab22">
           <div class="col-3" *ngFor="let metric of race?.metrics">
-            {{ metric.name }}
+            {{ metric.name }} - {{ metric.currentCoordinate?.latitude }} - {{ metric.currentCoordinate?.longitude }} - {{ metric.tracking_device }}
           </div>
         </div>
         <div class="tab-pane" id="tab32">

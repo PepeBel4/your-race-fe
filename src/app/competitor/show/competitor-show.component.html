@@ -23,9 +23,9 @@
         </div>
         <div class="row">
           <div class="col-md-5 col-12 text-center">
-            <div class="post-user post-user-profile">
+            <div *ngIf="competitor?.sailor?.avatar_remote_url" class="post-user post-user-profile">
               <span class="thumb-xlg">
-                <img class="rounded-circle" src="assets/img/people/a5.jpg" alt="...">
+                <img class="rounded-circle" src="{{ competitor?.sailor?.avatar_remote_url }}" alt="...">
               </span>
               <h5 class="fw-normal">{{competitor?.name}}</h5>
               <p>{{ competitor?.number }}</p>
@@ -36,7 +36,7 @@
               <ul class="contacts">
                 <li><i class="fa fa-phone fa-fw mr-xs"></i><a href="#"> +375 29 555-55-55</a></li>
                 <li><i class="fa fa-envelope fa-fw mr-xs"></i><a href="#"> psmith@example.com</a></li>
-                <li><i class="fa fa-map-marker fa-fw mr-xs"></i><a href="#"> Minsk, Belarus</a></li>
+                <li><i class="fa fa-map-marker fa-fw mr-xs"></i><a href="#"> tel </a></li>
               </ul>
             </div>
           </div>
@@ -60,6 +60,10 @@
               <a href="#" class="badge badge-danger ml-xs"> Web Design </a>
               <a href="#" class="badge badge-default ml-xs"> Mobile Apps </a>
             </p>
+            <p>Nickname : {{ competitor?.sailor?.nickname }}</p>
+            <p>Country : {{ competitor?.sailor?.country }}</p>
+            <p>Resident country : {{ competitor?.sailor?.resident_country }}</p>
+            <p>Campaign website : {{ competitor?.sailor?.campaign_website }}</p>
             <p class="lead mt-lg">
               My name is Adam Johns and here is my new Sing user profile page.
             </p>

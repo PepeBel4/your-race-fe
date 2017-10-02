@@ -15,6 +15,14 @@ import { RaceService } from '../../race/race.service';
 })
 
 export class FleetShow implements OnInit {
+
+
+  lat: number = -37.813179;
+  lng: number = 144.950259;
+  zoom: number = 12;
+
+  markers: marker[] = [];
+
 	id: number;
 	routeId: any;
 
@@ -82,9 +90,15 @@ export class FleetShow implements OnInit {
 			this.race = response.json()
 			
 			let list: any[] = [];
-				response.json().race_competitors.forEach(element => {
+      	response.json().race_competitors.forEach(element => {
     			list.push({"number": element.competitor.number, "name": element.competitor.name});
 			});
+
+        this.markers = [];
+        response.json().metrics.forEach(element => {
+          this.markers.push({"lat": 51.6, "lng": 7.8, "label": element.name, "draggable":true});
+      });
+
 
 				this.ng2TableData = list;
 				this.onChangeTable(this.config);
@@ -156,3 +170,10 @@ export class FleetShow implements OnInit {
 
 
 }
+
+interface marker {
+  lat: number;
+  lng: number;
+  label?: string;
+  draggable: boolean;
+};

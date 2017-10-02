@@ -30,6 +30,8 @@ import { PaginationModule  } from 'ngx-bootstrap';
 
 import { SearchPipe } from './pipes/search-pipe';
 
+import { AgmCoreModule } from '@agm/core';
+
 export const routes = [
   { path: '', component: Competitions, pathMatch: 'full' },
   { path: 'competitions', component: Competitions},
@@ -53,7 +55,10 @@ export const routes = [
     JqSparklineModule,
     RouterModule.forChild(routes),
     PaginationModule.forRoot(),
-    Ng2TableModule
+    Ng2TableModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyDe_oVpi9eRSN99G4o6TwVjJbFBNr58NxE'
+    })
   ],
   declarations: [
     Competitions,
