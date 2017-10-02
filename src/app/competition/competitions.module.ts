@@ -12,18 +12,18 @@ import { Competitions } from './competitions.component.ts';
 import { CompetitionNew } from './new/competition-new.component.ts';
 import { CompetitionShow } from './show/competition-show.component.ts';
 
-import { GroupNew } from './group/new/group-new.component.ts';
-import { GroupShow } from './group/show/group-show.component.ts';
-import { GroupService } from './group/group.service';
+import { GroupNew } from '../group/new/group-new.component.ts';
+import { GroupShow } from '../group/show/group-show.component.ts';
+import { GroupService } from '../group/group.service';
 
-import { FleetShow } from './group/fleet/show/fleet-show.component.ts';
-import { FleetService } from './group/fleet/fleet.service';
+import { FleetShow } from '../fleet/show/fleet-show.component.ts';
+import { FleetService } from '../fleet/fleet.service';
 
-import { CompetitorNew } from './group/competitor/new/competitor-new.component.ts';
-import { CompetitorShow } from './group/competitor/show/competitor-show.component.ts';
-import { CompetitorService } from './group/competitor/competitor.service';
+import { CompetitorNew } from '../competitor/new/competitor-new.component.ts';
+import { CompetitorShow } from '../competitor/show/competitor-show.component.ts';
+import { CompetitorService } from '../competitor/competitor.service';
 
-import { RaceService } from './group/fleet/show/race.service';
+import { RaceService } from '../race/race.service';
 
 import { Ng2TableModule } from 'ng2-table';
 import { PaginationModule  } from 'ngx-bootstrap';
