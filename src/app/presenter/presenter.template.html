@@ -1,0 +1,61 @@
+  <main id="content" class="content" role="main">
+
+<div class="row">
+  <div class="col-lg-12">
+  	<section class="widget" widget>
+      <header>
+
+ <router-outlet></router-outlet>
+        <h6>Welcome <span class="fw-semi-bold">to the</span></h6>
+        <div class="widget-controls">
+        </div>
+      </header>
+      <div class="widget-body">
+      	<div>
+      		<h1>{{ competition?.title }}</h1>
+			<div>
+				Id: {{ competition?.title }}
+			</div>
+			<div>
+				Created by: {{ competition?.created_by }}
+			</div>
+      	</div>
+      </div>
+     </section>
+  </div>
+  
+ </div>
+
+<div class="row">
+ <div class="col-lg-4 col-md-6 col-12" *ngFor="let group of competition?.groups">
+    <a routerLink="./groups/{{ group.id }}">
+    <section class="widget bg-primary text-white">
+      <div class="widget-body clearfix">
+        <div class="row flex-nowrap">
+          <div class="col-3">
+            <span class="widget-icon">
+              <i class="glyphicon glyphicon-globe"></i>
+            </span>
+          </div>
+          <div class="col-9">
+            <h6 class="no-margin">GROUP</h6>
+            <p class="h2 no-margin fw-normal">{{ group.name }}</p>
+          </div>
+        </div>
+        <div class="row flex-nowrap">
+          <div class="col-6">
+            <h6 class="no-margin">Registrations</h6>
+            <p class="value5">{{ group.registrants }}</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    </a>
+  </div>
+</div>
+
+<div class="col-lg-4 col-md-6 col-12" *ngFor="let group of competition?.groups">
+    {{group.name}}
+  </div>
+
+</main>

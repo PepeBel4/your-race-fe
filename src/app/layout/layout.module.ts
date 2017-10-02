@@ -16,8 +16,6 @@ import { SearchPipe } from './pipes/search.pipe';
 import { NotificationLoad } from './notifications/notifications-load.directive';
 import { Notifications } from './notifications/notifications.component';
 
-import { CompetitionService } from '../competition/competition.service';
-
 @NgModule({
   imports: [
     CommonModule,
@@ -35,7 +33,6 @@ import { CompetitionService } from '../competition/competition.service';
     NotificationLoad,
     ChatMessage
   ],providers: [
-    CompetitionService
   ]
 })
 export class LayoutModule {

@@ -1,8 +1,8 @@
 import { Component,ViewEncapsulation, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
 import { Observable } from 'rxjs/Rx';
-import { Group } from '../group';
-import { GroupService } from '../../group.service';
+import { Group } from '../../services/group';
+import { GroupService } from '../services/group.service';
 
 @Component({
 	selector: 'group-new',

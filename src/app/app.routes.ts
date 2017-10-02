@@ -9,5 +9,6 @@ export const ROUTES: Routes = [{
     { path: 'callback', component: CallbackComponent },
     { path: 'login', loadChildren: './login/login.module#LoginModule' }, 
     { path: 'error', component: ErrorComponent }, 
-    { path: '**',    component: ErrorComponent },  
+    { path: 'presenter', loadChildren: './presenter/presenter.module#PresenterModule' },
+    { path: '**',    component: ErrorComponent }
 ];
