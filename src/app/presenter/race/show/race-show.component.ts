@@ -6,6 +6,8 @@ import { Observable, Subscription } from 'rxjs/Rx';
 import { Race } from '../../../race/race';
 import { RaceService } from '../../../race/race.service';
 
+import { PubNubAngular } from 'pubnub-angular2';
+
 @Component({
 	selector: 'race-show',
 	templateUrl: 'race-show.component.html',
@@ -44,14 +46,38 @@ export class RaceShow implements OnInit {
 
   private timer: any;
   private sub: Subscription;
+  channel: string;
 
 	constructor(
 		private http: Http,
 		private route: ActivatedRoute,
-		private raceService: RaceService
-	 ) {}
+		private raceService: RaceService,
+    pubnub: PubNubAngular
+	 ) {
 
-	@Input()
+       var self = this;
+       this.channel = 'races-1';
+       
+       pubnub.init({
+        publishKey: 'pub-c-b06ac705-6638-4946-af1f-da17d43c519e',
+        subscribeKey: 'sub-c-f2672bfe-a75e-11e7-ad87-6e294738eb45'
+       });
+
+       pubnub.subscribe({
+         channels: [this.channel],
+         withPresence: true,
+         triggerEvents: true
+       });
+
+       pubnub.getMessage(this.channel, function (msg) {
+         console.log(msg);
+         self.race = msg.message;
+         console.log('we are here!');
+         console.log(self.race);
+      });
+
+  }
+
 	race: Race;
 
 	ngOnInit(): void {
@@ -61,7 +87,8 @@ export class RaceShow implements OnInit {
 				this.raceService.getRace(+params['competition_id'],+params['group_id'],+params['fleet_id'],+params['id']));
 		competitionRequest.subscribe(response => {
 			this.race = response.json()
-			this.setRace(this.race.id);
+			console.log(this.race);
+      this.setRace(this.race.id);
 		})
 
 		let searchInput = jQuery('#table-search-input, #search-countries');
@@ -72,12 +99,13 @@ export class RaceShow implements OnInit {
       .focusout((e) => {
       jQuery(e.target).closest('.input-group').removeClass('focus');
     });
-    
+
     this.onChangeTable(this.config);
 
     //timer
     this.timer = Observable.timer(0,1000);  
-    this.sub = this.timer.subscribe(() => this.updateRaceData());   
+    this.sub = this.timer.subscribe(() => this.updateRaceData());  
+
 	}
 
   ngOnDestroy(){
@@ -98,7 +126,7 @@ export class RaceShow implements OnInit {
 				this.raceService.getRace(+params['competition_id'],+params['group_id'],+params['id'],race_id));
 		competitionRequest.subscribe((response: any) => {
 			this.race = response.json()
-			
+		
 			let list: any[] = [];
       	response.json().race_competitors.forEach(element => {
     			list.push({"number": element.competitor.number, "name": element.competitor.name});

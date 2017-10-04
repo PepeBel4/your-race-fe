@@ -1,4 +1,6 @@
 import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { PubNubAngular } from 'pubnub-angular2';
 import { CommonModule }  from '@angular/common';
 import { Presenter } from './presenter.component';
 import { RouterModule } from '@angular/router';
@@ -46,6 +48,7 @@ export const routes = [
     SecondsToTimePipe
   ],
   providers: [
+    PubNubAngular
   ]
 })
 export class PresenterModule {
