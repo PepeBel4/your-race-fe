@@ -1,10 +1,10 @@
-	import { Component,OnInit, ViewEncapsulation, Input } from '@angular/core';
+import { Component,OnInit, ViewEncapsulation, Input } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Http, Response, Headers, RequestOptions } from '@angular/http';
 import { Observable } from 'rxjs/Rx';
 
-import { Group } from '../../services/group';
-import { GroupService } from '../../services/group.service';
+import { Group } from '../../../services/group';
+import { GroupService } from '../../../services/group.service';
 
 @Component({
 	selector: 'group-show',

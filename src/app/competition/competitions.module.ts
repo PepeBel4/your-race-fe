@@ -14,21 +14,18 @@ import { CompetitionShow } from './show/competition-show.component.ts';
 
 import { GroupNew } from '../group/new/group-new.component.ts';
 import { GroupShow } from '../group/show/group-show.component.ts';
-import { GroupService } from '../group/group.service';
 
 import { FleetShow } from '../fleet/show/fleet-show.component.ts';
-import { FleetService } from '../fleet/fleet.service';
 
 import { CompetitorNew } from '../competitor/new/competitor-new.component.ts';
 import { CompetitorShow } from '../competitor/show/competitor-show.component.ts';
-import { CompetitorService } from '../competitor/competitor.service';
-
-import { RaceService } from '../race/race.service';
 
 import { Ng2TableModule } from 'ng2-table';
 import { PaginationModule  } from 'ngx-bootstrap';
 
 import { SearchPipe } from './pipes/search-pipe';
+
+import { AgmCoreModule } from '@agm/core';
 
 export const routes = [
   { path: '', component: Competitions, pathMatch: 'full' },
@@ -53,7 +50,10 @@ export const routes = [
     JqSparklineModule,
     RouterModule.forChild(routes),
     PaginationModule.forRoot(),
-    Ng2TableModule
+    Ng2TableModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyDe_oVpi9eRSN99G4o6TwVjJbFBNr58NxE'
+    })
   ],
   declarations: [
     Competitions,
@@ -67,10 +67,6 @@ export const routes = [
     SearchPipe
   ],
   providers: [
-    GroupService,
-    FleetService,
-    RaceService,
-    CompetitorService
   ]
 })
 export class CompetitionsModule {

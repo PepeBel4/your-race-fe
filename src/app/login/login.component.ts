@@ -18,7 +18,7 @@ export class Login {
   ) {}
 
   ngOnInit() {
-		this.authService.login();      
+		//this.authService.login();      
     }
 
 }

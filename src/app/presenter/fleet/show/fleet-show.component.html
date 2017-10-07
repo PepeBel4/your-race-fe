@@ -1,15 +1,14 @@
 <style>
   agm-map {
-  height: 600px;
+  height: 300px;
 }
 </style>
 
-<div style="position: absolute;z-index:10;"><h1 class="page-title">Google <span class="fw-semi-bold">Maps</span></h1>
-</div>
-  
-<agm-map [latitude]="lat" [longitude]="lng" [mapTypeId]="'satellite'">
+<agm-map [latitude]="lat" [longitude]="lng">
   <agm-marker *ngFor="let marker of markers" [latitude]="marker.lat" [longitude]="marker.lng"></agm-marker>
 </agm-map>
+<h1 class="page-title">Google <span class="fw-semi-bold">Maps</span></h1>
+
 
 
 <section class="widget" widget>

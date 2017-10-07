@@ -34,12 +34,23 @@ import { AppConfig } from './app.config';
 import { ErrorComponent } from './error/error.component';
 import { CallbackComponent } from './callback/callback.component';
 
+import { GroupService } from './services/group.service';
+import { RaceService } from './race/race.service';
+import { FleetService } from './fleet/fleet.service';
+import { CompetitorService } from './competitor/competitor.service';
+import { CompetitionService } from './competition/competition.service';
+
 // Application wide providers
 const APP_PROVIDERS = [
   ...APP_RESOLVER_PROVIDERS,
   AppState,
   AppConfig,
-  AuthService
+  AuthService,
+  GroupService,
+  RaceService,
+  FleetService,
+  CompetitorService,
+  CompetitionService
 ];
 
 type StoreType = {
