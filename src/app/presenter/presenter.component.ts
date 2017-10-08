@@ -5,10 +5,13 @@ import { Observable, Subscription } from 'rxjs/Rx';
 import { Competition } from '../competition/competition';
 import { CompetitionService } from '../competition/competition.service';
 
+import { PubNubAngular } from 'pubnub-angular2';
+
 @Component({
 	selector: 'presenter',
 	templateUrl: 'presenter.template.html',
-  	encapsulation: ViewEncapsulation.None
+  	encapsulation: ViewEncapsulation.None,
+    providers: [ PubNubAngular]
 
 })
 export class Presenter implements OnInit {
