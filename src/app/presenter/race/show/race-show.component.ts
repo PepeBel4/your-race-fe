@@ -70,6 +70,7 @@ export class RaceShow implements OnInit {
        });
 
        pubnub.getMessage(this.channel, function (msg) {
+         console.log('we are receiving')
          console.log(msg);
          self.race = msg.message;
          console.log('we are here!');
@@ -116,7 +117,7 @@ export class RaceShow implements OnInit {
     }
 
     updateRaceData() {
-      if (this.race) this.race.ongoingFor += 1;      
+      if (this.race) this.race.ongoingFor += 1;
     }
 
 
